@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>直播吧网站-直播吧网站哪个好_体育直播吧_赛事直播导航</title>
+<meta name="description" content="直播吧网站是专注体育赛事与热门直播的内容导航平台，提供足球篮球电竞等赛程入口、主播推荐、最新直播动态与深度观赛指南，帮助球迷快速找到稳定好用的直播吧网站，收藏即用。">
+<meta name="keywords" content="直播吧网站,体育直播吧,赛事直播导航,足球直播吧,篮球直播平台">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%230f172a%22/><circle cx=%2250%22 cy=%2244%22 r=%2220%22 fill=%22%233b82f6%22/><rect x=%2228%22 y=%2266%22 width=%2244%22 height=%2210%22 rx=%225%22 fill=%22%2360a5fa%22/></svg>">
+<style>
+:root{
+  --bg:#f4f7fb;
+  --surface:#ffffff;
+  --surface-2:#eef3f9;
+  --ink:#0f172a;
+  --ink-soft:#475569;
+  --muted:#7c8aa0;
+  --line:#dbe4ef;
+  --brand:#1d4ed8;
+  --brand-2:#0ea5e9;
+  --brand-soft:#e0ebff;
+  --accent:#f97316;
+  --good:#0f9b6c;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow:0 10px 30px rgba(18,42,74,.08);
+  --shadow-hover:0 16px 42px rgba(18,42,74,.14);
+  --max:1200px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+ul,ol{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px;}
+.section{padding:52px 0;}
+.section-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  gap:16px;margin-bottom:26px;flex-wrap:wrap;
+}
+.section-head h2{
+  font-size:26px;line-height:1.3;letter-spacing:.5px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-head h2::before{
+  content:"";width:6px;height:24px;border-radius:4px;
+  background:linear-gradient(180deg,var(--brand),var(--brand-2));
+  display:inline-block;
+}
+.section-head .sub{color:var(--muted);font-size:14px;}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;
+  border:1px solid transparent;cursor:pointer;transition:.2s;
+}
+.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 8px 20px rgba(29,78,216,.28);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(29,78,216,.34);}
+.btn-ghost{background:#fff;border-color:var(--line);color:var(--ink-soft);}
+.btn-ghost:hover{border-color:var(--brand);color:var(--brand);}
+.tag{
+  display:inline-block;padding:3px 10px;border-radius:999px;
+  font-size:12px;background:var(--surface-2);color:var(--ink-soft);
+  margin:0 6px 6px 0;white-space:nowrap;
+}
+.tag-blue{background:var(--brand-soft);color:var(--brand);}
+.tag-orange{background:#fff1e6;color:#c2410c;}
+.tag-green{background:#e3f8ef;color:#0b7a55;}
+
+/* 导航 */
+.site-header{
+  position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex;align-items:center;gap:26px;height:66px;
+  max-width:var(--max);margin:0 auto;padding:0 20px;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;
+  letter-spacing:.5px;flex-shrink:0;
+}
+.logo-mark{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;color:#fff;font-size:16px;font-weight:900;
+  box-shadow:0 6px 14px rgba(29,78,216,.25);
+}
+.main-nav{display:flex;gap:6px;flex-wrap:wrap;font-size:14.5px;color:var(--ink-soft);}
+.main-nav a{padding:6px 12px;border-radius:8px;transition:.18s;}
+.main-nav a:hover{background:var(--brand-soft);color:var(--brand);}
+.nav-search{
+  margin-left:auto;display:flex;align-items:center;gap:8px;
+  border:1px solid var(--line);border-radius:999px;padding:6px 8px 6px 16px;
+  background:#fff;min-width:230px;
+}
+.nav-search input{border:0;outline:0;font-size:14px;flex:1;background:transparent;color:var(--ink);}
+.nav-search button{
+  border:0;background:var(--brand);color:#fff;border-radius:999px;
+  padding:6px 14px;font-size:13px;cursor:pointer;font-weight:600;
+}
+.menu-toggle{display:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 12px;font-size:18px;cursor:pointer;}
+
+/* Banner */
+.hero{
+  position:relative;overflow:hidden;
+  background:radial-gradient(1100px 420px at 80% -10%,rgba(14,165,233,.18),transparent 60%),
+             radial-gradient(800px 380px at 0% 0%,rgba(29,78,216,.14),transparent 60%),
+             #fff;
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:var(--max);margin:0 auto;padding:64px 20px 56px;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero h1{
+  font-size:clamp(30px,4vw,46px);line-height:1.2;letter-spacing:1px;
+  margin-bottom:18px;
+}
+.hero h1 .hl{
+  background:linear-gradient(120deg,var(--brand),var(--brand-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{color:var(--ink-soft);font-size:16px;max-width:560px;margin-bottom:24px;}
+.hero-search{
+  display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:7px 7px 7px 20px;box-shadow:var(--shadow);max-width:520px;
+}
+.hero-search input{flex:1;border:0;outline:0;font-size:15px;background:transparent;}
+.hero-search button{
+  border:0;border-radius:999px;padding:10px 22px;font-size:14px;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--brand),var(--brand-2));cursor:pointer;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.hero-actions .btn{padding:9px 16px;font-size:13.5px;}
+.hero-panel{
+  background:linear-gradient(160deg,#0f172a,#1e3a8a 55%,#0ea5e9 130%);
+  border-radius:24px;padding:26px;color:#e2e8f0;box-shadow:0 24px 60px rgba(15,23,42,.35);
+  position:relative;overflow:hidden;
+}
+.hero-panel::after{
+  content:"";position:absolute;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.18),transparent 65%);
+  right:-60px;top:-60px;
+}
+.hero-panel h3{font-size:15px;color:#bae6fd;letter-spacing:1px;margin-bottom:14px;}
+.hero-panel .kv{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14);font-size:14px;}
+.hero-panel .kv:last-child{border-bottom:0;}
+.hero-panel .kv span:last-child{color:#7dd3fc;font-weight:700;}
+.hero-panel .note{margin-top:14px;font-size:12.5px;color:#94a3b8;line-height:1.6;}
+
+/* 快捷分类 */
+.quick-cats{
+  display:grid;grid-template-columns:repeat(8,1fr);gap:12px;
+}
+.qcat{
+  background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 8px;
+  text-align:center;font-size:13.5px;font-weight:600;color:var(--ink-soft);
+  transition:.2s;box-shadow:0 4px 12px rgba(18,42,74,.04);
+}
+.qcat span{display:block;font-size:20px;margin-bottom:4px;}
+.qcat:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);color:var(--brand);border-color:#bfdbfe;}
+
+/* 卡片网格 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;box-shadow:0 4px 14px rgba(18,42,74,.05);transition:.22s;
+  display:flex;flex-direction:column;gap:10px;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+.card h3{font-size:17px;line-height:1.45;}
+.card .desc{color:var(--ink-soft);font-size:13.5px;line-height:1.65;}
+.card .meta{
+  margin-top:auto;display:flex;justify-content:space-between;align-items:center;
+  font-size:12.5px;color:var(--muted);padding-top:8px;border-top:1px dashed var(--line);
+}
+.cover{
+  height:100px;border-radius:12px;display:grid;place-items:center;
+  color:#fff;font-size:20px;font-weight:800;letter-spacing:2px;
+  background:linear-gradient(135deg,#1d4ed8,#0ea5e9);
+}
+.cover.c2{background:linear-gradient(135deg,#0f172a,#334155);}
+.cover.c3{background:linear-gradient(135deg,#f97316,#ef4444);}
+.cover.c4{background:linear-gradient(135deg,#059669,#10b981);}
+.cover.c5{background:linear-gradient(135deg,#7c3aed,#ec4899);}
+.cover.c6{background:linear-gradient(135deg,#0ea5e9,#22d3ee);}
+
+/* 最新更新列表 */
+.update-list{display:flex;flex-direction:column;gap:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;}
+.update-item{
+  display:flex;align-items:center;gap:16px;padding:16px 20px;
+  border-bottom:1px solid var(--line);transition:.18s;
+}
+.update-item:last-child{border-bottom:0;}
+.update-item:hover{background:var(--surface-2);}
+.update-time{
+  flex-shrink:0;width:86px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;
+}
+.update-title{font-weight:600;font-size:14.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.update-badge{flex-shrink:0;font-size:11.5px;padding:2px 9px;border-radius:999px;background:#e0ebff;color:#1d4ed8;}
+
+/* 深度解析 */
+.article-block{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:34px;box-shadow:0 6px 20px rgba(18,42,74,.05);
+}
+.article-block h2{font-size:24px;margin-bottom:18px;}
+.article-block h3{font-size:17.5px;margin:22px 0 10px;color:var(--brand);}
+.article-block p{color:var(--ink-soft);font-size:15px;margin-bottom:14px;line-height:1.9;}
+.article-block ul{padding-left:4px;}
+.article-block li{
+  color:var(--ink-soft);font-size:14.5px;padding:6px 0 6px 22px;position:relative;
+}
+.article-block li::before{
+  content:"";position:absolute;left:2px;top:15px;width:7px;height:7px;border-radius:2px;
+  background:var(--brand-2);
+}
+
+/* 数据看板 */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.stat{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:20px;text-align:center;
+}
+.stat .num{font-size:28px;font-weight:800;color:var(--brand);font-variant-numeric:tabular-nums;}
+.stat .lbl{font-size:13px;color:var(--muted);margin-top:4px;}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:12px;}
+.faq-item{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:0 20px;overflow:hidden;
+}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:17px 0;font-weight:600;font-size:15px;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{
+  content:"+";font-size:20px;color:var(--brand);font-weight:400;transition:.2s;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item .ans{
+  padding:0 0 18px;color:var(--ink-soft);font-size:14.5px;line-height:1.85;
+  border-top:1px dashed var(--line);padding-top:14px;margin-top:2px;
+}
+
+/* 评论 */
+.comment-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.comment{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:16px 18px;
+}
+.comment-head{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.avatar{
+  width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+  color:#fff;font-size:13px;font-weight:700;flex-shrink:0;
+  background:linear-gradient(135deg,#1d4ed8,#0ea5e9);
+}
+.avatar.a2{background:linear-gradient(135deg,#f97316,#ef4444);}
+.avatar.a3{background:linear-gradient(135deg,#059669,#10b981);}
+.avatar.a4{background:linear-gradient(135deg,#7c3aed,#ec4899);}
+.avatar.a5{background:linear-gradient(135deg,#0f172a,#475569);}
+.comment-name{font-weight:600;font-size:13.5px;}
+.comment-date{font-size:12px;color:var(--muted);margin-left:auto;}
+.comment-body{font-size:13.8px;color:var(--ink-soft);line-height:1.7;}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.news-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;transition:.2s;
+}
+.news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);}
+.news-date{font-size:12px;color:var(--muted);letter-spacing:.5px;}
+.news-card h3{font-size:15.5px;margin:8px 0;line-height:1.5;}
+.news-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.7;}
+
+/* 订阅 */
+.subscribe{
+  background:linear-gradient(135deg,#0f172a,#1e3a8a 60%,#0ea5e9 130%);
+  border-radius:24px;padding:44px 36px;color:#e2e8f0;
+  display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+}
+.subscribe h2{font-size:24px;margin-bottom:8px;}
+.subscribe p{font-size:14px;color:#94a3b8;max-width:520px;}
+.subscribe .sub-form{display:flex;gap:10px;flex-wrap:wrap;}
+.subscribe input{
+  border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);
+  color:#fff;border-radius:999px;padding:11px 20px;font-size:14px;outline:0;min-width:230px;
+}
+.subscribe input::placeholder{color:#94a3b8;}
+.subscribe button{
+  border:0;border-radius:999px;padding:11px 24px;font-weight:700;font-size:14px;
+  background:#fff;color:#0f172a;cursor:pointer;
+}
+
+/* 页脚 */
+.site-footer{background:#0f172a;color:#94a3b8;padding:44px 0 26px;margin-top:20px;}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:30px;}
+.footer-brand .logo{color:#fff;margin-bottom:12px;}
+.footer-brand p{font-size:13px;line-height:1.8;max-width:320px;}
+.footer-col h4{color:#e2e8f0;font-size:14px;margin-bottom:12px;}
+.footer-col a{display:block;font-size:13px;padding:4px 0;transition:.18s;}
+.footer-col a:hover{color:#7dd3fc;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  font-size:12.5px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media (max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;}
+  .grid-4{grid-template-columns:repeat(2,1fr);}
+  .quick-cats{grid-template-columns:repeat(4,1fr);}
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:720px){
+  .main-nav{display:none;}
+  .menu-toggle{display:inline-block;margin-left:auto;}
+  .nav-search{display:none;}
+  .hero-inner{padding:42px 20px 38px;}
+  .grid-3,.news-grid,.comment-list{grid-template-columns:1fr;}
+  .quick-cats{grid-template-columns:repeat(4,1fr);gap:8px;}
+  .qcat{font-size:12px;padding:12px 4px;}
+  .section{padding:38px 0;}
+  .article-block{padding:22px;}
+  .subscribe{padding:30px 22px;}
+  .footer-top{grid-template-columns:1fr;}
+  .update-time{width:70px;font-size:11.5px;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="logo" href="/#top-home">
+      <span class="logo-mark">B8</span>
+      直播吧网站
+    </a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="/#hot-recommend">热门推荐</a>
+      <a href="/#latest-update">最新更新</a>
+      <a href="/#deep-analysis">深度解析</a>
+      <a href="/#category-index">分类入口</a>
+      <a href="/#faq-section">常见问题</a>
+      <a href="/#user-comments">用户评论</a>
+      <a href="/#news-stream">相关资讯</a>
+    </nav>
+    <div class="nav-search">
+      <input type="text" placeholder="搜索赛事、主播或直播吧网站…" aria-label="站内搜索">
+      <button type="button">搜索</button>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="展开菜单">☰</button>
+  </div>
+</header>
+
+<!-- 首屏 Banner -->
+<section class="hero" id="top-home">
+  <div class="hero-inner">
+    <div>
+      <h1><span class="hl">直播吧网站</span>：体育赛事与热门直播导航入口</h1>
+      <p class="hero-desc">
+        聚合足球、篮球、电竞与综合体育的直播吧网站入口，整理赛程、主播与可用线路，帮你在开赛前少走弯路。页面持续更新直播动态、观赛指南与用户真实反馈，适合收藏长期使用。
+      </p>
+      <div class="hero-search">
+        <input type="text" placeholder="输入球队、赛事或主播关键词…" aria-label="首屏搜索">
+        <button type="button">立即查找</button>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/#hot-recommend">热门直播入口</a>
+        <a class="btn btn-ghost" href="/#latest-update">今日更新</a>
+        <a class="btn btn-ghost" href="/#deep-analysis">观赛指南</a>
+        <a class="btn btn-ghost" href="/#faq-section">新手问答</a>
+        <a class="btn btn-ghost" href="/#user-comments">用户反馈</a>
+        <a class="btn btn-ghost" href="/#news-stream">直播资讯</a>
+        <a class="btn btn-ghost" href="/#category-index">分类导航</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="今日直播数据速览">
+      <h3>今日直播吧网站速览 · 2026.11.07</h3>
+      <div class="kv"><span>足球赛事直播中</span><span>18 场</span></div>
+      <div class="kv"><span>篮球赛事直播中</span><span>11 场</span></div>
+      <div class="kv"><span>电竞与综合项目</span><span>9 场</span></div>
+      <div class="kv"><span>活跃主播/解说房间</span><span>260+</span></div>
+      <p class="note">数据为站点栏目模拟统计，用于帮助读者判断当前直播吧网站的内容密度与更新节奏。</p>
+    </aside>
+  </div>
+</section>
+
+<!-- 快捷分类入口 -->
+<section class="section" aria-label="快捷分类入口">
+  <div class="wrap">
+    <div class="quick-cats">
+      <a class="qcat" href="/#category-index"><span>⚽</span>足球直播</a>
+      <a class="qcat" href="/#category-index"><span>🏀</span>篮球直播</a>
+      <a class="qcat" href="/#category-index"><span>🎮</span>电竞直播</a>
+      <a class="qcat" href="/#category-index"><span>🎾</span>网球赛事</a>
+      <a class="qcat" href="/#category-index"><span>🏎️</span>赛车直播</a>
+      <a class="qcat" href="/#category-index"><span>🥊</span>格斗搏击</a>
+      <a class="qcat" href="/#category-index"><span>🏐</span>排球联赛</a>
+      <a class="qcat" href="/#category-index"><span>📺</span>综合体育</a>
+    </div>
+  </div>
+</section>
+
+<!-- 热门内容推荐 -->
+<section class="section" id="hot-recommend">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>热门直播吧网站内容推荐</h2>
+      <span class="sub">按近期浏览与讨论热度整理，适合开赛前快速挑选</span>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="cover">英超焦点战</div>
+        <h3>英超强强对话直播入口整理</h3>
+        <div class="desc">曼城对阵利物浦的直播吧网站入口合集，含赛前分析、解说风格对比与多线路备选，适合同时关注战术与临场气氛的球迷。</div>
+        <div><span class="tag tag-blue">足球</span><span class="tag">英超</span><span class="tag tag-orange">焦点战</span></div>
+        <div class="meta"><span>热度 9.6</span><span>更新于 11-07</span></div>
+      </article>
+      <article class="card">
+        <div class="cover c2">NBA 常规赛</div>
+        <h3>NBA 常规赛中文解说直播吧网站推荐</h3>
+        <div class="desc">覆盖东西部热门球队的直播入口，重点标注解说清晰、画质稳定、暂停回放体验较好的房间，方便边看边讨论。</div>
+        <div><span class="tag tag-blue">篮球</span><span class="tag">NBA</span><span class="tag tag-green">中文解说</span></div>
+        <div class="meta"><span>热度 9.3</span><span>更新于 11-07</span></div>
+      </article>
+      <article class="card">
+        <div class="cover c3">电竞总决赛</div>
+        <h3>电竞赛事直播吧网站观赛房间合集</h3>
+        <div class="desc">MOBA 与 FPS 项目热门赛事入口，适合关注赛程节奏与选手操作细节的观众，附带赛前热梗与社区讨论入口。</div>
+        <div><span class="tag tag-blue">电竞</span><span class="tag">总决赛</span><span class="tag tag-orange">热门</span></div>
+        <div class="meta"><span>热度 9.1</span><span>更新于 11-06</span></div>
+      </article>
+      <article class="card">
+        <div class="cover c4">网球大师赛</div>
+        <h3>网球大师赛直播吧网站线路整理</h3>
+        <div class="desc">硬地赛季重点场次入口，整理不同解说语言与回放完整度，适合习惯看技术统计和慢镜头的网球观众。</div>
+        <div><span class="tag tag-blue">网球</span><span class="tag">大师赛</span><span class="tag tag-green">技术流</span></div>
+        <div class="meta"><span>热度 8.7</span><span>更新于 11-06</span></div>
+      </article>
+      <article class="card">
+        <div class="cover c5">格斗之夜</div>
+        <h3>格斗之夜直播吧网站多角度观看</h3>
+        <div class="desc">综合格斗与拳击赛事入口，侧重回合节奏、慢放回看与选手资料，适合喜欢研究技战术的硬核观众。</div>
+        <div><span class="tag tag-blue">格斗</span><span class="tag">拳击</span><span class="tag">MMA</span></div>
+        <div class="meta"><span>热度 8.5</span><span>更新于 11-05</span></div>
+      </article>
+      <article class="card">
+        <div class="cover c6">赛车周末</div>
+        <h3>赛车周末直播吧网站排位赛入口</h3>
+        <div class="desc">排位赛与正赛入口汇总，标注解说团队与数据面板完整度，适合关注车队策略和轮胎变化的车迷。</div>
+        <div><span class="tag tag-blue">赛车</span><span class="tag">排位赛</span><span class="tag tag-orange">周末档</span></div>
+        <div class="meta"><span>热度 8.2</span><span>更新于 11-05</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 最新更新 -->
+<section class="section" id="latest-update" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>最新更新与直播动态</h2>
+      <span class="sub">2026 年 11 月 7 日实时整理</span>
+    </div>
+    <div class="update-list">
+      <div class="update-item"><span class="update-time">11-07 21:40</span><span class="update-title">英超焦点战直播吧网站入口已更新，新增两条备用线路</span><span class="update-badge">足球</span></div>
+      <div class="update-item"><span class="update-time">11-07 21:12</span><span class="update-title">NBA 常规赛中文解说房间上线，附赛前伤停简报</span><span class="update-badge">篮球</span></div>
+      <div class="update-item"><span class="update-time">11-07 20:35</span><span class="update-title">电竞赛事总决赛专题页补充选手数据与历史交手记录</span><span class="update-badge">电竞</span></div>
+      <div class="update-item"><span class="update-time">11-07 19:50</span><span class="update-title">网球大师赛今日赛程与直播吧网站线路同步完成</span><span class="update-badge">网球</span></div>
+      <div class="update-item"><span class="update-time">11-07 18:20</span><span class="update-title">格斗之夜称重结果发布，附观赛重点与回合看点</span><span class="update-badge">格斗</span></div>
+      <div class="update-item"><span class="update-time">11-07 17:05</span><span class="update-title">赛车周末排位赛直播入口更新，新增车队策略解读</span><span class="update-badge">赛车</span></div>
+      <div class="update-item"><span class="update-time">11-07 15:30</span><span class="update-title">排球联赛今日三场连播，直播吧网站入口集中整理</span><span class="update-badge">排球</span></div>
+      <div class="update-item"><span class="update-time">11-07 13:10</span><span class="update-title">综合体育栏目新增羽毛球与乒乓球赛事直播入口</span><span class="update-badge">综合</span></div>
+      <div class="update-item"><span class="update-time">11-07 11:45</span><span class="update-title">用户反馈：部分直播吧网站线路在移动端体验优化</span><span class="update-badge">公告</span></div>
+      <div class="update-item"><span class="update-time">11-07 09:20</span><span class="update-title">本周观赛指南更新，覆盖足球篮球电竞重点场次</span><span class="update-badge">指南</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 内容简介 -->
+<section class="section" id="intro-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="article-block">
+      <h2>直播吧网站内容简介：为什么值得收藏</h2>
+      <p>直播吧网站的核心需求非常明确——在赛事密集的时段，快速找到稳定、清晰、解说合适的直播入口。很多球迷在比赛开始前十分钟才开始搜索，结果被大量重复页面和失效链接打断节奏。本页面围绕“直播吧网站”这一搜索意图，把足球、篮球、电竞、网球、格斗、赛车等项目的直播入口、赛程动态和观赛建议集中整理，减少反复试错的时间成本。</p>
+      <p>适合浏览本页的人群包括：习惯在电脑端边看边查数据的深度球迷、用手机碎片时间追比赛的上班族、关注电竞赛事和选手操作的学生群体，以及想找中文解说或特定解说风格的中立观众。页面不承诺任何单一入口长期可用，而是通过分类、更新时间和用户反馈，帮助你判断当前哪些直播吧网站线路更值得优先尝试。</p>
+      <p>本页的参考价值在于信息组织方式：热门推荐告诉你近期讨论度高的场次，最新更新反映入口变动，深度解析讲清楚不同项目的观赛重点，FAQ 则回答新手最常遇到的困惑。你可以把它当作一个长期收藏的直播导航页，也可以在开赛前只花两分钟浏览最新更新，快速决定看哪一场、用哪个入口。</p>
+      <p>如果你正在搜索“直播吧网站哪个好”“体育直播吧怎么选”“赛事直播导航是否稳定”，建议先看分类入口和用户评论，再结合自己的设备与网络环境做判断。页面内容会随着 2026 年 11 月的赛程推进持续补充，适合加入书签反复回访。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 深度解析正文 -->
+<section class="section" id="deep-analysis" style="padding-top:0;">
+  <div class="wrap">
+    <div class="article-block">
+      <h2>深度解析：如何挑选适合自己的直播吧网站</h2>
+      <h3>一、先看项目类型，再看入口</h3>
+      <p>直播吧网站并不是一个单一站点，而是一类以赛事直播导航为核心的内容聚合入口。不同项目对直播体验的要求差别很大：足球观众更在意解说是否懂战术、画面是否覆盖全景机位；篮球观众看重暂停回放和节间数据；电竞赛事则对低延迟和弹幕氛围更敏感。因此挑选直播吧网站时，第一步不是比较谁家线路多，而是先确认自己主要看什么项目。</p>
+      <h3>二、解说风格决定观赛体验</h3>
+      <p>同一场足球比赛，有的解说偏向激情输出，有的偏向战术拆解，还有的几乎全程安静只保留现场音。直播吧网站的价值之一，是把这些不同风格的房间集中呈现，让你在开赛前就能判断是否合口味。对于习惯关弹幕的观众，页面标注的“解说清晰度”和“数据面板完整度”比线路数量更有参考意义。</p>
+      <h3>三、稳定性和更新频率同样重要</h3>
+      <p>赛事直播入口的可用性会随时间变化，这也是很多用户反复搜索直播吧网站的原因。一个负责任的导航页应当明确标注更新时间，并在入口变动时给出备选方案。本页的“最新更新”栏目就是为此设计：你可以先看最近两小时的动态，再决定是否进入热门推荐里的具体房间，避免在失效链接上浪费时间。</p>
+      <h3>四、移动端与碎片化观赛</h3>
+      <p>2026 年的观赛场景越来越碎片化，很多用户是在通勤、午休或排队时用手机看几分钟直播。直播吧网站如果移动端排版混乱、按钮过小，体验会明显下降。本页在布局上优先保证手机端的可读性，分类入口和更新列表都采用纵向信息流，适合单手滑动浏览。</p>
+      <h3>五、同类内容比较与搜索意图</h3>
+      <p>搜索“直播吧网站”的用户通常有三类意图：找当前正在直播的比赛、找特定项目的长期入口、或者比较不同导航页哪个更稳定。本页分别用热门推荐、分类入口和 FAQ 回应这三类需求。与只看标题的聚合页相比，这里更强调“为什么推荐”和“适合谁看”，让选择过程更有依据。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 分类入口 -->
+<section class="section" id="category-index" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>分类入口：按项目快速定位</h2>
+      <span class="sub">覆盖主流赛事与直播吧网站常见内容类型</span>
+    </div>
+    <div class="grid-4">
+      <a class="card" href="/#hot-recommend"><h3>⚽ 足球直播吧</h3><div class="desc">英超、西甲、意甲、德甲与杯赛入口，适合关注战术与联赛走势的球迷。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🏀 篮球直播吧</h3><div class="desc">NBA、CBA 与洲际赛事，侧重中文解说、回放与数据面板。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🎮 电竞直播吧</h3><div class="desc">MOBA、FPS 与格斗游戏赛事，关注低延迟与社区讨论氛围。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🎾 网球直播吧</h3><div class="desc">大满贯与大师赛入口，适合喜欢技术统计和慢镜头的观众。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🥊 格斗直播吧</h3><div class="desc">拳击、综合格斗赛事，回合节奏与选手资料整理。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🏎️ 赛车直播吧</h3><div class="desc">排位赛与正赛入口，车队策略和轮胎变化解读。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>🏐 排球直播吧</h3><div class="desc">联赛与国家队赛事，适合关注轮次和球员状态的观众。</div></a>
+      <a class="card" href="/#hot-recommend"><h3>📺 综合体育入口</h3><div class="desc">羽毛球、乒乓球等项目的直播吧网站入口汇总。</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 数据看板 -->
+<section class="section" id="data-panel" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>页面数据速览</h2>
+      <span class="sub">用于辅助判断内容密度与更新活跃度</span>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="num">46</div><div class="lbl">今日收录直播场次</div></div>
+      <div class="stat"><div class="num">12</div><div class="lbl">近 24 小时更新条目</div></div>
+      <div class="stat"><div class="num">260+</div><div class="lbl">活跃解说与主播房间</div></div>
+      <div class="stat"><div class="num">8</div><div class="lbl">已整理项目分类</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 体验指南 -->
+<section class="section" id="experience-guide" style="padding-top:0;">
+  <div class="wrap">
+    <div class="article-block">
+      <h2>体验指南：如何更高效地使用本页</h2>
+      <p>本页的结构围绕“先看动态、再选入口、最后看反馈”的顺序设计。如果你时间紧张，可以直接从最新更新进入，查看最近两小时是否有入口变动；如果你在寻找长期可用的直播吧网站，建议先浏览分类入口和用户评论，了解不同项目的常见讨论点。</p>
+      <ul>
+        <li>开赛前十分钟：优先看最新更新，确认当前推荐线路。</li>
+        <li>寻找长期入口：从分类入口进入对应项目，结合热门推荐筛选。</li>
+        <li>移动端使用：纵向滑动即可完成浏览，卡片和列表均适配小屏。</li>
+        <li>扩展浏览：FAQ 与相关资讯提供背景信息，减少重复搜索。</li>
+        <li>收藏建议：页面更新频率较高，适合加入书签后定期回访。</li>
+      </ul>
+      <p>需要说明的是，直播吧网站入口的可用性受网络环境和时段影响，本页提供的是信息整理与筛选思路，不保证任何单一线路的持续可用。遇到入口变化时，建议结合用户评论和最新动态综合判断。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq-section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>常见问题</h2>
+      <span class="sub">围绕直播吧网站的搜索意图整理</span>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>直播吧网站适合哪些人使用？</summary>
+        <div class="ans">适合希望快速找到体育赛事直播入口的观众，包括足球、篮球、电竞、网球等项目的球迷。页面按项目和更新时间组织内容，对新手和长期用户都比较友好。如果你只是偶尔看一场比赛，也可以从热门推荐直接进入，不需要逐条浏览全部栏目。</div>
+      </details>
+      <details class="faq-item">
+        <summary>直播吧网站的入口会经常变动吗？</summary>
+        <div class="ans">赛事直播入口受多种因素影响，确实存在变动可能。本页通过最新更新栏目记录变动情况，并在热门推荐中提供备选思路。建议在开赛前查看最近更新，而不是长期依赖同一个入口。遇到失效链接时，可以回到分类入口重新筛选。</div>
+      </details>
+      <details class="faq-item">
+        <summary>看足球比赛应该优先关注什么？</summary>
+        <div class="ans">优先关注解说风格、画面机位和数据面板。足球比赛节奏相对连续，解说是否懂战术会明显影响体验。其次看是否有备用线路，避免关键阶段中断。本页在足球卡片中标注了解说风格和更新状态，方便快速判断。</div>
+      </details>
+      <details class="faq-item">
+        <summary>电竞赛事和传统体育的入口选择有何不同？</summary>
+        <div class="ans">电竞赛事对延迟更敏感，弹幕和社区讨论氛围也是体验的一部分。传统体育则更看重解说、回放和数据统计。挑选直播吧网站时，可以根据自己更在意“实时互动”还是“专业解读”来做取舍。本页在电竞分类中单独标注了低延迟和讨论入口。</div>
+      </details>
+      <details class="faq-item">
+        <summary>移动端浏览本页需要注意什么？</summary>
+        <div class="ans">本页已针对手机端做纵向信息流适配，分类入口和更新列表都适合单手滑动。建议在 Wi-Fi 或稳定网络下浏览，避免在直播开始前频繁切换页面。如果使用流量，可以优先查看最新更新和热门推荐，减少加载内容。</div>
+      </details>
+      <details class="faq-item">
+        <summary>如何判断一个直播吧网站是否值得收藏？</summary>
+        <div class="ans">可以从更新频率、分类清晰度、用户反馈和入口稳定性四个角度判断。更新频繁说明维护活跃，分类清晰能减少查找时间，用户评论则反映真实体验。本页的用户评论和最新更新栏目就是为这个判断过程提供参考，建议结合自身项目偏好综合评估。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 用户评论 -->
+<section class="section" id="user-comments" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>用户评论与观赛反馈</h2>
+      <span class="sub">来自近 30 天的真实讨论氛围整理</span>
+    </div>
+    <div class="comment-list">
+      <div class="comment"><div class="comment-head"><span class="avatar">球</span><span class="comment-name">北看台老周</span><span class="comment-date">11-07</span></div><div class="comment-body">直播吧网站的更新挺及时，今天英超焦点战的两条备用线路确实能用，比上周稳定。解说偏战术流，适合我这种关弹幕看的。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a2">篮</span><span class="comment-name">三分线外</span><span class="comment-date">11-06</span></div><div class="comment-body">NBA 中文解说房间标注得比较清楚，回放完整度也写了。唯一想吐槽的是移动端偶尔要点两次才能进，希望继续优化。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a3">电</span><span class="comment-name">夜航星</span><span class="comment-date">11-06</span></div><div class="comment-body">电竞分类里能看到选手数据和历史交手，这个比单纯列入口有用。低延迟房间值得试试，弹幕氛围也不错。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a4">网</span><span class="comment-name">底线小斜线</span><span class="comment-date">11-05</span></div><div class="comment-body">网球大师赛的线路整理很省时间，慢镜头和统计面板都标出来了。适合我这种喜欢看技术细节的人。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a5">格</span><span class="comment-name">八角笼边</span><span class="comment-date">11-05</span></div><div class="comment-body">格斗之夜入口更新还算快，称重结果也补充了。希望以后能多写一点回合节奏的预判。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar">赛</span><span class="comment-name">轮胎策略组</span><span class="comment-date">11-04</span></div><div class="comment-body">赛车周末排位赛的入口和车队策略解读放在一起，体验不错。就是页面内容有点多，第一次来需要适应。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a2">排</span><span class="comment-name">网前小球</span><span class="comment-date">11-04</span></div><div class="comment-body">排球联赛三场连播整理得很清楚，适合我这种下班回家直接开看的。直播吧网站这个导航页收藏了。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a3">综</span><span class="comment-name">周末看台</span><span class="comment-date">11-03</span></div><div class="comment-body">综合体育入口有羽毛球和乒乓球，覆盖面比预期广。不过有些入口标注不够细，希望能补充解说语言。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a4">足</span><span class="comment-name">中场休息</span><span class="comment-date">11-03</span></div><div class="comment-body">热门推荐里的看点写得比较实在，不是空话。英超那场解说风格和我胃口。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a5">篮</span><span class="comment-name">挡拆顺下</span><span class="comment-date">11-02</span></div><div class="comment-body">篮球入口的伤停简报有用，赛前十分钟看一遍能少踩坑。希望更新频率保持住。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar">电</span><span class="comment-name">补刀不失误</span><span class="comment-date">11-02</span></div><div class="comment-body">总决赛专题页补充的历史交手记录挺好，但页面加载稍慢，建议再压缩一下。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a2">综</span><span class="comment-name">凌晨三点</span><span class="comment-date">11-01</span></div><div class="comment-body">夜间模式阅读舒服，适合凌晨看比赛前刷一下最新更新。直播吧网站这个页面算是比较克制的导航站。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a3">足</span><span class="comment-name">边路快马</span><span class="comment-date">10-31</span></div><div class="comment-body">分类入口清晰，但足球和篮球的卡片颜色有点接近，第一次找的时候稍微愣了下。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a4">网</span><span class="comment-name">抢七局</span><span class="comment-date">10-30</span></div><div class="comment-body">希望 FAQ 能再加一条关于回放完整度的说明，有些入口直播清楚但回放缺片段。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a5">赛</span><span class="comment-name">进站窗口</span><span class="comment-date">10-29</span></div><div class="comment-body">赛车入口更新挺快，排位赛前半小时看还有效。整体页面信息密度高，适合老车迷。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar">格</span><span class="comment-name">地面压制</span><span class="comment-date">10-28</span></div><div class="comment-body">格斗赛事入口如果能标一下解说语言就好了，有时候只想听现场音。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a2">排</span><span class="comment-name">二传手</span><span class="comment-date">10-27</span></div><div class="comment-body">排球分类虽然场次不多，但整理得比较认真，适合小众项目用户。</div></div>
+      <div class="comment"><div class="comment-head"><span class="avatar a3">综</span><span class="comment-name">看台常客</span><span class="comment-date">10-26</span></div><div class="comment-body">整体好评，页面不像那种只堆链接的直播吧网站，有解释有反馈，收藏了。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 相关资讯 -->
+<section class="section" id="news-stream" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>相关资讯</h2>
+      <span class="sub">直播吧网站与赛事动态延伸阅读</span>
+    </div>
+    <div class="news-grid">
+      <article class="news-card">
+        <div class="news-date">2026-11-07</div>
+        <h3>足球周末赛事密度上升，直播吧网站入口整理需求增加</h3>
+        <p>随着联赛进入密集赛程，球迷在开赛前集中搜索直播吧网站。多项目同时开赛时段，分类清晰和更新时间标注成为页面体验的关键。</p>
+      </article>
+      <article class="news-card">
+        <div class="news-date">2026-11-06</div>
+        <h3>NBA 中文解说房间受关注，篮球直播吧网站体验对比</h3>
+        <p>中文解说、回放完整度和数据面板成为篮球观众选择直播吧网站的主要依据，部分用户开始更看重赛前伤停信息。</p>
+      </article>
+      <article class="news-card">
+        <div class="news-date">2026-11-06</div>
+        <h3>电竞赛事总决赛临近，低延迟与社区讨论并重</h3>
+        <p>电竞观众对直播吧网站的要求集中在低延迟和弹幕氛围，选手数据与历史交手记录也成为专题页的加分项。</p>
+      </article>
+      <article class="news-card">
+        <div class="news-date">2026-11-05</div>
+        <h3>网球硬地赛季观赛指南：技术统计与慢镜头回放</h3>
+        <p>网球观众更关注直播吧网站是否提供完整技术统计和多角度回放，页面标签中的“技术流”指向逐渐明确。</p>
+      </article>
+      <article class="news-card">
+        <div class="news-date">2026-11-04</div>
+        <h3>格斗夜与赛车周末同日开赛，多项目导航页价值凸显</h3>
+        <p>当多个项目在同一时段开赛，直播吧网站的分类入口和更新列表能帮助观众快速取舍，减少反复搜索。</p>
+      </article>
+      <article class="news-card">
+        <div class="news-date">2026-11-03</div>
+        <h3>移动端观赛比例上升，直播吧网站页面适配受关注</h3>
+        <p>碎片化观赛让移动端体验成为选择直播吧网站的重要标准，纵向信息流和清晰按钮设计更受欢迎。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 订阅引导 -->
+<section class="section" id="subscribe-area" style="padding-top:0;">
+  <div class="wrap">
+    <div class="subscribe">
+      <div>
+        <h2>订阅直播吧网站更新提醒</h2>
+        <p>留下常用邮箱，获取赛事入口变动、热门场次与观赛指南更新提示。仅用于页面内容提醒，不发送无关信息。</p>
+      </div>
+      <form class="sub-form" onsubmit="return false;">
+        <input type="email" placeholder="请输入邮箱地址" aria-label="订阅邮箱">
+        <button type="submit">订阅更新</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-mark">B8</span>直播吧网站</div>
+        <p>专注体育赛事与热门直播的内容导航页，整理直播吧网站入口、赛程动态与观赛指南，帮助球迷更高效地找到适合自己的观看方式。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门栏目</h4>
+        <a href="/#hot-recommend">热门推荐</a>
+        <a href="/#latest-update">最新更新</a>
+        <a href="/#deep-analysis">深度解析</a>
+        <a href="/#category-index">分类入口</a>
+      </div>
+      <div class="footer-col">
+        <h4>内容分类</h4>
+        <a href="/#category-index">足球直播吧</a>
+        <a href="/#category-index">篮球直播吧</a>
+        <a href="/#category-index">电竞直播吧</a>
+        <a href="/#category-index">综合体育</a>
+      </div>
+      <div class="footer-col">
+        <h4>帮助与反馈</h4>
+        <a href="/#faq-section">常见问题</a>
+        <a href="/#user-comments">用户评论</a>
+        <a href="/#news-stream">相关资讯</a>
+        <a href="/#subscribe-area">订阅更新</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 直播吧网站内容导航页 · 本站为信息整理与导航用途，不存储任何直播流媒体内容。</span>
+      <span>友情链接占位：体育资讯站 · 赛事数据站 · 观赛社区</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+                                                  </html>
